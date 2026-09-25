@@ -32,7 +32,9 @@ main {
   padding: 64px 24px 48px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 36px;
+  position: relative;
+  z-index: 1;
 }
 
 a {
@@ -89,7 +91,7 @@ a.proj { font-weight: 600; }
   column-gap: var(--gap);
   margin-bottom: 22px;
 }
-section > .row:last-child, section.row { margin-bottom: 0; }
+section > .row:last-child, section.row, .row.intro { margin-bottom: 0; }
 
 .margin {
   font-size: 14px;
@@ -102,11 +104,11 @@ section > .row:last-child, section.row { margin-bottom: 0; }
 }
 .margin .stack { font-style: italic; }
 
-figure { margin: 0 0 14px; }
+figure { margin: 0 0 12px; }
 figure img {
   display: block;
   width: 100%;
-  max-width: 190px;
+  max-width: 160px;
   height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
@@ -128,6 +130,35 @@ footer {
   font-size: 14px;
   color: var(--muted);
 }
+
+/* Faint logo columns drifting in the side margins (wide screens only) */
+.rail {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.07;
+  z-index: 0;
+  display: none;
+}
+.rail-left  { left:  calc((100vw - 916px) / 4 - 22px); }
+.rail-right { right: calc((100vw - 916px) / 4 - 22px); }
+.rail-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
+  padding-bottom: 72px;
+  animation: rail-up 90s linear infinite;
+}
+.rail-right .rail-track { animation-name: rail-down; animation-duration: 110s; }
+.rail img { width: 34px; height: 34px; display: block; }
+@keyframes rail-up   { from { transform: translateY(0); }    to { transform: translateY(-50%); } }
+@keyframes rail-down { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+@media (min-width: 1180px) { .rail { display: block; } }
+@media (prefers-reduced-motion: reduce) { .rail-track { animation: none; } }
 
 /* Tablet & phone: margin notes drop below their paragraph */
 @media (max-width: 980px) {
@@ -167,4 +198,5 @@ footer {
   .margin { font-size: 9pt; }
   figure img { max-width: 120pt; }
   a { text-decoration: none; }
+  .rail { display: none !important; }
 }

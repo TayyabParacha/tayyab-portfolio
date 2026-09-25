@@ -1,0 +1,153 @@
+/* Tufte-handout style portfolio — plain CSS, no framework. */
+
+:root {
+  --paper: #fffff8;
+  --ink: #111111;
+  --muted: #444444;
+  --rule: #b8b8a8;
+  --accent: #6b3b00;
+  --text-w: 640px;
+  --margin-w: 260px;
+  --gap: 60px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 21px;
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+main {
+  max-width: calc(var(--text-w) + var(--gap) + var(--margin-w));
+  margin: 0 auto;
+  padding: 96px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover, a:focus-visible { color: var(--accent); text-decoration-color: var(--accent); }
+
+p { margin: 0 0 12px; }
+p:last-child { margin-bottom: 0; }
+
+h1 {
+  margin: 0;
+  font-size: 54px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+}
+.subtitle {
+  margin: 8px 0 0;
+  font-size: 26px;
+  font-style: italic;
+  color: #333;
+}
+h2 {
+  margin: 0 0 24px;
+  font-size: 32px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.sc { font-variant: small-caps; letter-spacing: 0.04em; }
+
+/* Main column + margin column */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, var(--text-w)) var(--margin-w);
+  column-gap: var(--gap);
+  margin-bottom: 28px;
+}
+section > .row:last-child, section.row { margin-bottom: 0; }
+
+.margin {
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 5px;
+}
+.margin .stack { font-style: italic; }
+
+figure { margin: 0 0 14px; }
+figure img {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: grayscale(1) contrast(1.05);
+}
+figcaption { margin-top: 8px; font-style: italic; color: #555; }
+
+.links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+
+blockquote {
+  margin: 0;
+  padding-left: 28px;
+  font-style: italic;
+}
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* Tablet & phone: margin notes drop below their paragraph */
+@media (max-width: 980px) {
+  body { font-size: 19px; }
+  main { padding: 56px 20px 48px; gap: 44px; max-width: 680px; }
+  h1 { font-size: 40px; }
+  .subtitle { font-size: 21px; }
+  h2 { font-size: 28px; margin-bottom: 18px; }
+  .row { grid-template-columns: minmax(0, 1fr); row-gap: 6px; }
+  .margin { padding-top: 0; }
+  .margin.dates { order: -1; flex-direction: column; gap: 0; margin-bottom: 4px; }
+  .intro { row-gap: 24px; }
+  .intro .margin { order: -1; flex-direction: row; align-items: flex-end; gap: 20px; }
+  .intro figure { margin: 0; width: 150px; flex-shrink: 0; }
+  blockquote { padding-left: 18px; }
+}
+
+@media (max-width: 420px) {
+  body { font-size: 18px; }
+  h1 { font-size: 34px; }
+  .intro figure { width: 120px; }
+}
+
+/* Printing gives a clean one-column handout */
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  main { padding: 0; gap: 18pt; max-width: none; }
+  h1 { font-size: 26pt; }
+  .subtitle { font-size: 13pt; }
+  h2 { font-size: 15pt; margin-bottom: 8pt; }
+  .row { grid-template-columns: 1fr 160pt; column-gap: 24pt; margin-bottom: 10pt; break-inside: avoid; }
+  .margin { font-size: 9pt; }
+  figure img { max-width: 120pt; }
+  a { text-decoration: none; }
+}

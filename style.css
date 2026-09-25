@@ -69,6 +69,19 @@ h2 {
 
 .sc { font-variant: small-caps; letter-spacing: 0.04em; }
 
+/* Company + role heading for each job */
+h3 {
+  margin: 0 0 10px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.25;
+}
+h3 .org { font-size: 26px; font-weight: 600; letter-spacing: 0.005em; }
+h3 .role { font-size: 19px; font-style: italic; color: #333; margin-top: 2px; }
+a.proj { font-weight: 600; }
+
 /* Main column + margin column */
 .row {
   display: grid;
@@ -100,7 +113,6 @@ figure img {
   object-position: center 18%;
   filter: grayscale(1) contrast(1.05);
 }
-figcaption { margin-top: 8px; font-style: italic; color: #555; }
 
 .links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
 
@@ -124,9 +136,14 @@ footer {
   h1 { font-size: 40px; }
   .subtitle { font-size: 21px; }
   h2 { font-size: 28px; margin-bottom: 18px; }
+  h3 .org { font-size: 23px; }
+  h3 .role { font-size: 17px; }
   .row { grid-template-columns: minmax(0, 1fr); row-gap: 6px; }
   .margin { padding-top: 0; }
   .margin.dates { order: -1; flex-direction: column; gap: 0; margin-bottom: 4px; }
+  .job > div { display: contents; }
+  .job h3 { order: -2; margin-bottom: 4px; }
+  .job .margin.dates { margin-bottom: 10px; }
   .intro { row-gap: 24px; }
   .intro .margin { order: -1; flex-direction: row; align-items: flex-end; gap: 20px; }
   .intro figure { margin: 0; width: 150px; flex-shrink: 0; }

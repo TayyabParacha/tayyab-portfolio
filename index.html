@@ -13,7 +13,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,11 +25,13 @@
   </header>
 
   <div class="row intro">
-    <p><span class="sc">I am a senior software engineer</span> with five years of building scalable backend systems — cloud-native microservices, event-driven workflows and high-performance APIs in Python, FastAPI, PostgreSQL, Redis and AWS. I lead a small team at Devsinc in Islamabad and work mostly on transaction-heavy, real-time and data-intensive platforms.</p>
+    <div>
+      <p><span class="sc">I am a senior software engineer</span> with five years of building scalable backend systems — cloud-native microservices, event-driven workflows and high-performance APIs in Python, FastAPI, PostgreSQL, Redis and AWS. I lead a small team at Devsinc in Islamabad and work mostly on transaction-heavy, real-time and data-intensive platforms.</p>
+      <p>Beyond writing code, I lead engineers, shape system architecture and take what we build all the way to production. I care most about software that stays secure, reliable and fast under load — whether that is a transactional workflow, a real-time platform or an API that other developers build on.</p>
+    </div>
     <aside class="margin">
       <figure>
         <img src="assets/profile.jpg" alt="Portrait of Muhammad Tayyab Paracha" width="480" height="600">
-        <figcaption>Islamabad, Pakistan.</figcaption>
       </figure>
       <ul class="links">
         <li><a href="mailto:mtayyabp@gmail.com">mtayyabp@gmail.com</a></li>
@@ -42,9 +44,10 @@
   <section>
     <h2>Work</h2>
 
-    <div class="row">
+    <div class="row job">
       <div>
-        <p><span class="sc">Senior Software Engineer, Devsinc.</span> I lead a team of three engineers and own backend architecture, sprint delivery, code review and production quality across several client systems.</p>
+        <h3><span class="org">Devsinc</span><span class="role">Senior Software Engineer · Islamabad</span></h3>
+        <p>I lead a team of three engineers and own backend architecture, sprint delivery, code review and production quality across several client systems.</p>
         <p>I designed multi-tenant platforms on Flask/FastAPI, PostgreSQL, MongoDB and Redis, and built event-driven workflows on SQS, SNS and Lambda for asynchronous, high-concurrency work. Query tuning, caching and indexing made our APIs more than 30% faster; autoscaling and right-sizing cut the AWS bill. I run the CI/CD pipelines and provision infrastructure with CloudFormation and GitHub Actions, and design the retry, logging and failure handling around our third-party integrations.</p>
       </div>
       <aside class="margin dates">
@@ -53,9 +56,10 @@
       </aside>
     </div>
 
-    <div class="row">
+    <div class="row job">
       <div>
-        <p><span class="sc">Senior Backend Engineer, Turing.</span> Remote, for a US supply-chain platform belonging to a client valued at $15B. I designed REST APIs and microservices for transactional workflows, and reworked schemas, indexes and queries to bring response times down by 30–40%.</p>
+        <h3><span class="org">Turing</span><span class="role">Senior Backend Engineer · Remote, US</span></h3>
+        <p>I worked on a supply-chain platform for a US client valued at $15B. I designed REST APIs and microservices for transactional workflows, and reworked schemas, indexes and queries to bring response times down by 30–40%.</p>
         <p>I also built the deployment infrastructure in AWS CDK, added monitoring and fault-tolerant processing, and helped distributed teams agree on architecture standards and deployment practices.</p>
       </div>
       <aside class="margin dates">
@@ -64,8 +68,11 @@
       </aside>
     </div>
 
-    <div class="row">
-      <p><span class="sc">Software Engineer, Moaice.</span> More than fifty client projects across backend development, automation, web scraping, AI/ML prototypes and full-stack apps — REST APIs, admin dashboards, scraping pipelines and automation tools. Recognised as a Top Performer for delivery, communication and code quality.</p>
+    <div class="row job">
+      <div>
+        <h3><span class="org">Moaice</span><span class="role">Software Engineer</span></h3>
+        <p>More than fifty client projects across backend development, automation, web scraping, AI/ML prototypes and full-stack apps — REST APIs, admin dashboards, scraping pipelines and automation tools. Recognised as a Top Performer for delivery, communication and code quality.</p>
+      </div>
       <aside class="margin dates">
         <span>April 2020 – January 2022</span>
         <span class="stack">Django · Flask · FastAPI · React · Selenium</span>
@@ -77,22 +84,22 @@
     <h2>Projects</h2>
 
     <div class="row">
-      <p><a href="https://kudo.ai" rel="noopener">KUDO.ai</a> — real-time multilingual translation for video meetings. FastAPI and WebSockets carry the audio; Azure Speech-to-Text, Google Translation and the ChatGPT API turn it into low-latency transcripts and translations.</p>
+      <p><a href="https://kudo.ai" rel="noopener" class="proj">KUDO.ai</a> — real-time multilingual translation for video meetings. FastAPI and WebSockets carry the audio; Azure Speech-to-Text, Google Translation and the ChatGPT API turn it into low-latency transcripts and translations.</p>
       <aside class="margin"><span class="stack">FastAPI · WebSockets · Azure Speech · OpenAI</span></aside>
     </div>
 
     <div class="row">
-      <p><a href="https://faerietalescreamery.com" rel="noopener">Faerie Tales Creamery</a> — the backend behind a fleet of ice-cream trucks: live cart tracking, menus, discounts, inventory and routes, served to driver, customer and admin apps from Strapi and FastAPI.</p>
+      <p><a href="https://faerietalescreamery.com" rel="noopener" class="proj">Faerie Tales Creamery</a> — the backend behind a fleet of ice-cream trucks: live cart tracking, menus, discounts, inventory and routes, served to driver, customer and admin apps from Strapi and FastAPI.</p>
       <aside class="margin"><span class="stack">FastAPI · Strapi CMS</span></aside>
     </div>
 
     <div class="row">
-      <p><a href="https://thisiswindow.com" rel="noopener">Window</a> — fashion aggregation across more than seventy online stores, scraped with Scrapy and Selenium on AWS Lambda, stored in DynamoDB and served by Flask APIs to thousands of users.</p>
+      <p><a href="https://thisiswindow.com" rel="noopener" class="proj">Window</a> — fashion aggregation across more than seventy online stores, scraped with Scrapy and Selenium on AWS Lambda, stored in DynamoDB and served by Flask APIs to thousands of users.</p>
       <aside class="margin"><span class="stack">Scrapy · Selenium · Lambda · DynamoDB · Flask</span></aside>
     </div>
 
     <div class="row">
-      <p><a href="https://myintellirent.com" rel="noopener">Intellirent</a> — rental-leasing SaaS that brings listings, tenant screening, background checks and income verification into one system. I built features that took manual steps out of leasing.</p>
+      <p><a href="https://myintellirent.com" rel="noopener" class="proj">Intellirent</a> — rental-leasing SaaS that brings listings, tenant screening, background checks and income verification into one system. I built features that took manual steps out of leasing.</p>
       <aside class="margin"><span class="stack">Python · SaaS workflows</span></aside>
     </div>
   </section>
